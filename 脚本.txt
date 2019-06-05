@@ -1,0 +1,20 @@
+javac -encoding UTF-8 *.java
+
+// 训练 测试
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 500 -topK 5
+
+// 训练 测试 保存模型
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 100 -topK 5 -fnOutputModel ./RESULT/model_20_0.01_100.txt
+
+// 训练 测试 输出候选列表
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 100 -topK 5 -fnOutputCandidateList ./RESULT/CandidateList_20_0.01_100.txt
+
+// 训练 测试 读入模型
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 100 -topK 5 -fnInputModel ./RESULT/model_20_0.01_100.txt
+
+// 训练 测试 读入候选列表
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 100 -topK 5 -fnInputCandidateList ./RESULT/CandidateList_20_0.01_100.txt
+
+// 训练 测试 读入模型 保存模型 读入候选列表 输出候选列表
+java Main -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML100K/u1.base.OCCF -fnTestData ./ML100K/u1.test.OCCF -n 943 -m 1682 -num_iterations 10 -topK 5 -fnInputModel ./RESULT/model_20_0.01_100.txt -fnInputCandidateList ./RESULT/CandidateList_20_0.01_100.txt -fnOutputCandidateList ./RESULT/CandidateList_20_0.01_200.txt -fnOutputModel ./RESULT/model_20_0.01_200.txt
+
